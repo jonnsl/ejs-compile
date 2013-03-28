@@ -1,0 +1,22 @@
+{
+  "name": "ejs-compile",
+  "description": "Compile ejs templates for the browser.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Jonnathan Soares",
+    "email": "jonnsl@hotmail.com"
+  },
+  "dependencies": {
+    "commander": "*",
+    "async": "*",
+    "read-dir-files": "*",
+    "ejs": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonnsl/ejs-compile"
+  },
+  "bin": {
+    "ejs-compile": "./bin/ejs-compile.js"
+  }
+}
