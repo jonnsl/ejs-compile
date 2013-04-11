@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "commander": "*",
-    "async": "*",
     "read-dir-files": "*",
     "ejs": "*"
   },
