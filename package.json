@@ -1,6 +1,6 @@
 {
   "name": "ejs-compile",
-  "description": "Compile ejs templates for the browser.",
+  "description": "Pre-compile ejs templates.",
   "version": "0.0.1",
   "author": {
     "name": "Jonnathan Soares",

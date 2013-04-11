@@ -18,7 +18,7 @@ program
   .version(pkg.version)
   .option('-w, --watch', 'Watch file(s) for changes and re-compile')
   .option('-o, --out [dir]', 'Output to [dir] when passing files')
-  .option('--min', 'Do some pre minification that minifiers usually can\'t do.')
+  .option('--min', 'Do some (unsafe) pre minification that minifiers usually can\'t do.')
   .option('--debug', '')
   .parse(process.argv);
 
