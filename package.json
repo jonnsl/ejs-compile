@@ -16,6 +16,6 @@
     "url": "https://github.com/jonnsl/ejs-compile"
   },
   "bin": {
-    "ejs-compile": "./bin/ejs-compile.js"
+    "ejs-compile": "./bin/ejs-compile"
   }
 }
