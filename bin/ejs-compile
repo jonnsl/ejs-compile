@@ -19,7 +19,11 @@ program
   .option('-w, --watch', 'Watch file(s) for changes and re-compile')
   .option('-o, --out [dir]', 'Output to [dir] when passing files')
   .option('--min', 'Do some (unsafe) pre minification that minifiers usually can\'t do.')
-  .option('--debug', '')
+  .option('--debug', 'Output generated function body')
+  .option('--strict', 'When set to true, generated function is in strict mode')
+  .option('--cache', 'Compiled functions are cached, requires filename')
+  .option('--usewith', 'Whether or not to use with() {} constructs. If false then the locals will be stored in the locals object. Set to false in strict mode.')
+  .option('--rmWhitespace', 'Remove all safe-to-remove whitespace, including leading and trailing whitespace. It also enables a safer version of -%> line slurping for all scriptlet tags (it does not strip new lines of tags in the middle of a line)')
   .parse(process.argv);
 
 var run = program.watch ? watch : compile;
@@ -81,16 +85,19 @@ function compile(file) {
 		if (err) return abort(err);
 
 		var contents = buf.toString('utf8');
-		var fn = ejs.compile(contents, {
-			//resolveInclude: false,
+		var options = {
 			client: true,
+			filename: path.join(process.cwd(), file),
 			compileDebug: program.debug === true,
-			filename: path.join(process.cwd(), file)
-		});
+			strict: program.strict === true,
+			cache: program.cache === true,
+			_with: program.usewith === true,
+			rmWhitespace: program.rmWhitespace === true,
+		}
+		var fn = ejs.compile(contents, options);
 
 		var data = fn.toString().split('\n');
 		data.splice(0, 1, data[0].replace(/^function anonymous/, 'module.exports = function '+ escape(basename)));
-		data.splice(2, 0, 'filters = filters || require(\'./filters.js\');');
 
 		if (program.out) {
 			fs.writeFile(
