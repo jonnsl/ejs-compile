@@ -18,12 +18,16 @@ Options:
   -h, --help       output usage information
   -V, --version    output the version number
   -w, --watch      Watch file(s) for changes and re-compile
-  -o, --out [dir]  Output to [dir] when passing files
+  -o, --out [dir]  Output to [dir] when passing files.
+  --strict         When set, generated function is in strict mode
+  --cache          Compiled functions are cached
+  --usewith        Whether or not to use with() {} constructs. If false then the locals will be stored in the locals object. Set to false in strict mode. Default false.
+  --rmWhitespace   Remove all safe-to-remove whitespace, including leading and trailing whitespace. It also enables a safer version of -%> line slurping for all scriptlet tags (it does not strip new lines of tags in the middle of a line)
   --min            Do some (unsafe) pre minification that minifiers usually can't do.
   --debug
 ```
 
-## License 
+## License
 
 (The MIT License)
 
