@@ -1,7 +1,7 @@
 {
   "name": "ejs-compile",
   "description": "Pre-compile ejs templates.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "Jonnathan Soares",
     "email": "jonnsl@hotmail.com"
