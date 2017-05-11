@@ -98,7 +98,6 @@ function compile(file) {
 
 		var data = fn.toString().split('\n');
 		data.splice(0, 1, data[0].replace(/^function anonymous/, 'module.exports = function '+ escape(basename)));
-		data.splice(2, 0, 'filters = filters || require(\'./filters.js\');');
 
 		if (program.out) {
 			fs.writeFile(
